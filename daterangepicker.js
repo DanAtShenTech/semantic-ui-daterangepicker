@@ -142,6 +142,7 @@
             this.minDate = false;
             this.maxDate = false;
             this.dateLimit = false;
+            this.autoApply = false;
 
             this.showDropdowns = false;
             this.showWeekNumbers = false;
@@ -306,6 +307,10 @@
                 this.timePicker12Hour = options.timePicker12Hour;
             }
 
+            if (typeof options.autoApply === 'boolean') {
+                this.autoApply = options.autoApply;
+            }
+
             // update day names order to firstDay
             if(this.locale.firstDay !== 0) {
                 var iterator = this.locale.firstDay;
@@ -410,6 +415,11 @@
                 this.endDate = this.endDate.endOf('day');
             }
 
+            if (this.autoApply && typeof options.ranges !== 'object') {
+                this.container.find('.ranges').hide();
+            } else if (this.autoApply) {
+                this.container.find('.applyBtn, .cancelBtn').addClass('hide');
+            }
             if(this.singleDatePicker) {
                 this.opens = 'right';
                 this.container.addClass('single');
@@ -938,7 +948,8 @@
             if(!this.timePicker)
                 endDate.endOf('day');
 
-            if(this.singleDatePicker && !this.timePicker)
+//            if(this.singleDatePicker && !this.timePicker)
+            if(this.singleDatePicker && this.autoApply)
                 this.clickApply();
         },
 
