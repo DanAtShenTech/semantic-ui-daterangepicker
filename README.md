@@ -131,7 +131,7 @@ labels, and the first day of week for the calendars
 instead of a range picker with two calendars; the start and end dates provided
 to your callback will be the same single date chosen.
 
-`autoApply`: (boolean) If set to true and if in singleDatePicker mode, then the date (and also the time if timePicker is true) is used when a date is clicked.  The Apply and Cancel buttons are not displayed.  
+`autoApply`: (boolean) Hide the apply and cancel buttons, and automatically apply a new date range as soon as two dates or a predefined range is selected.  If timePicker is true, then the time currently chosen will also be used.
 
 `parentEl`: (string) jQuery selector of the parent element that the date range
 picker will be added to, if not provided this will be `'body'`.

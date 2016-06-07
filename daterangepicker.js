@@ -948,8 +948,7 @@
             if(!this.timePicker)
                 endDate.endOf('day');
 
-//            if(this.singleDatePicker && !this.timePicker)
-            if(this.singleDatePicker && this.autoApply)
+            if(this.autoApply)
                 this.clickApply();
         },
 
